@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  height: var(--header-height);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 10px var(--header-box-shadow-color);
+}
+
+.header-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.header-address {
+  font-size: 0.9em;
+  margin-right: 2.5rem;
+}
+

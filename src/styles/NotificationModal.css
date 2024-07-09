@@ -1,0 +1,49 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.notification-modal {
+  background: var(--notification-bg);
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px var(--notification-box-shadow);
+  animation: fadeIn 0.3s ease;
+  width: 90%;
+  max-width: 400px;
+}
+
+.notification-modal p {
+  font-size: 1.2em;
+  color: var(--notification-text-color);
+  margin-bottom: 20px;
+}
+
+.notification-modal button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: var(--notification-button-bg);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.notification-modal button:hover {
+  background: var(--notification-button-hover-bg);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+

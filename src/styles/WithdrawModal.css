@@ -1,0 +1,109 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--modal-overlay-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.withdraw-modal {
+  background: var(--withdraw-modal-bg);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px var(--withdraw-modal-box-shadow);
+  text-align: center;
+  width: 320px;
+  transform: scale(0.8);
+  animation: scaleUp 0.3s ease-in-out forwards;
+}
+
+.withdraw-modal h2 {
+  margin-bottom: 20px;
+  color: var(--withdraw-modal-text-color);
+  font-size: 1.5em;
+}
+
+.balance-frame {
+  border: 2px solid var(--balance-frame-border);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background: var(--balance-frame-bg);
+  box-shadow: inset 0 0 10px var(--balance-frame-box-shadow);
+}
+
+.balance-frame p {
+  margin: 5px 0;
+}
+
+.balance-amount {
+  font-size: 1.75em;
+  font-weight: bold;
+  color: var(--balance-amount-color);
+  text-align: center;
+}
+
+.modal-input-group {
+  margin-bottom: 15px;
+}
+
+.modal-input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--history-modal-text-color);
+}
+
+.modal-input-group input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  font-size: 1em;
+  transition: border-color 0.3s;
+}
+
+.modal-input-group input:focus {
+  border-color: var(--input-focus-border-color);
+}
+
+.error-message {
+  color: var(--error-message-color);
+  margin-bottom: 10px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-button {
+  padding: 12px 25px;
+  background-color: var(--modal-button-bg);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 5px 0 5px;
+  font-size: 1em;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.modal-button:hover {
+  background-color: var(--modal-button-hover-bg);
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.8); }
+  to { transform: scale(1); }
+}
+
