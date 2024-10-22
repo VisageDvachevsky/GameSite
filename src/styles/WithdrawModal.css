@@ -53,13 +53,6 @@
   margin-bottom: 15px;
 }
 
-.modal-input-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-  color: var(--history-modal-text-color);
-}
-
 .modal-input-group input {
   width: 100%;
   padding: 10px;
@@ -72,6 +65,71 @@
 
 .modal-input-group input:focus {
   border-color: var(--input-focus-border-color);
+}
+
+.radio-group {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em; /* Увеличенный шрифт для текста */
+  cursor: pointer;
+  margin: 10px;
+}
+
+.radio-option input[type="radio"] {
+  display: none; /* Скрываем стандартную радио кнопку */
+}
+
+.radio-option input[type="radio"] + label {
+  position: relative;
+  padding-left: 35px; /* Отступ для фейковой кнопки */
+  cursor: pointer;
+  user-select: none;
+}
+
+.radio-option input[type="radio"] + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25px;
+  height: 25px;
+  border: 2px solid var(--input-border-color); /* Цвет границы */
+  border-radius: 50%; /* Круглая форма */
+  background-color: var(--withdraw-modal-bg); /* Цвет фона кнопки */
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.radio-option input[type="radio"]:checked + label:before {
+  background-color: var(--modal-button-bg); /* Цвет фона при активном состоянии */
+  border-color: var(--modal-button-bg);
+}
+
+.radio-option input[type="radio"] + label:after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: white;
+  transition: transform 0.2s ease-in-out;
+}
+
+.radio-option input[type="radio"]:checked + label:after {
+  transform: translateY(-50%) scale(1);
+}
+
+.radio-option label {
+  color: var(--withdraw-modal-text-color);
 }
 
 .error-message {
@@ -106,4 +164,3 @@
   from { transform: scale(0.8); }
   to { transform: scale(1); }
 }
-

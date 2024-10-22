@@ -8,7 +8,7 @@ import NotificationModal from './NotificationModal';
 function CheckboxList({ isGeneratorActive }) {
   const { t } = useTranslation(); // Hook for translation
   const networks = ["BSC", "ETH"];
-  const exchanges = ["Curve", "DYDX", "Uniswap", "Pancakeswap"];
+  const exchanges = ["Uniswap ETH", "Sushiswap", "Uniswap BSC", "Pancakeswap"];
   const [showLoading, setShowLoading] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState('');

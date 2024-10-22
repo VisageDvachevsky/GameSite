@@ -54,12 +54,13 @@ class MainContent extends Component {
       <main className="main-content">
         <div className={`text-label ${this.props.isToggled ? 'animated' : ''}`}>
           {this.state.blockchainAddresses.map((address, index) => (
-            <div key={index} className="address" unselectable="on" onSelectStart={() => false}>{address}</div>
+            <span key={index} className="address" unselectable="on" onSelectStart={() => false}>{address} </span> 
           ))}
         </div>
       </main>
     );
   }
+
 }
 
 MainContent.propTypes = {

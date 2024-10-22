@@ -10,6 +10,7 @@ class WithdrawModal extends Component {
     this.state = {
       address: '',
       amount: '',
+      network: 'BSC', // default selection
       errorMessage: '',
     };
   }
@@ -22,9 +23,13 @@ class WithdrawModal extends Component {
     this.setState({ amount: e.target.value });
   }
 
+  handleNetworkChange = (e) => {
+    this.setState({ network: e.target.value });
+  }
+
   handleWithdraw = async () => {
     const { balance, onWithdraw, t } = this.props;
-    const { address, amount } = this.state;
+    const { address, amount, network } = this.state;
     const amountNumber = parseFloat(amount);
 
     if (!address || !amount) {
@@ -37,12 +42,12 @@ class WithdrawModal extends Component {
       try {
         const { error } = await supabase
           .from('transactions')
-          .insert([{ address, amount: amountNumber, date: new Date().toISOString() }]);
+          .insert([{ address, amount: amountNumber, network, date: new Date().toISOString() }]);
 
         if (error) throw error;
 
         onWithdraw(amountNumber);
-        this.setState({ errorMessage: '', address: '', amount: '' });
+        this.setState({ errorMessage: '', address: '', amount: '', network: 'BSC' });
       } catch (error) {
         console.error('Error adding transaction: ', error);
         this.setState({ errorMessage: t('transactionSaveError') });
@@ -52,7 +57,7 @@ class WithdrawModal extends Component {
 
   render() {
     const { balance, onClose, t } = this.props;
-    const { address, amount, errorMessage } = this.state;
+    const { address, amount, network, errorMessage } = this.state;
 
     return (
       <div className="modal-overlay">
@@ -62,6 +67,7 @@ class WithdrawModal extends Component {
             <p>{t('currentBalance')}:</p>
             <p className="balance-amount">${balance.toFixed(2)}</p>
           </div>
+          
           <div className="modal-input-group">
             <label>{t('walletAddress')}:</label>
             <input 
@@ -80,6 +86,32 @@ class WithdrawModal extends Component {
               onChange={this.handleAmountChange}
             />
           </div>
+          <div className="modal-input-group network-group">
+            <label>{t('selectNetwork')}:</label>
+            <div className="radio-group">
+              <div className="radio-option">
+                <input
+                  type="radio"
+                  id="bsc"
+                  value="BSC"
+                  checked={network === 'BSC'}
+                  onChange={this.handleNetworkChange}
+                />
+                <label htmlFor="bsc">BSC</label>
+              </div>
+              <div className="radio-option">
+                <input
+                  type="radio"
+                  id="eth"
+                  value="ETH"
+                  checked={network === 'ETH'}
+                  onChange={this.handleNetworkChange}
+                />
+                <label htmlFor="eth">ETH</label>
+              </div>
+            </div>
+          </div>
+
           {errorMessage && <p className="error-message">{errorMessage}</p>}
           <button onClick={this.handleWithdraw} className="modal-button">{t('withdraw')}</button>
           <button onClick={onClose} className="modal-button">{t('cancel')}</button>

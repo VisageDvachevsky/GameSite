@@ -42,6 +42,7 @@
   user-select: none;
 }
 
+
 .animated .address {
   animation: flip 0.2s ease-in-out;
 }

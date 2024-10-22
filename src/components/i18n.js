@@ -41,7 +41,8 @@ const resources = {
       "exchanges": "Exchanges",
       "network": "Network",
       "exchange": "Exchange",
-      "successfully_connected": "successfully connected"
+      "successfully_connected": "successfully connected",
+      "selectNetwork":  "Select network"
     }
   },
   es: {
@@ -81,7 +82,8 @@ const resources = {
       "exchanges": "Intercambios",
       "network": "Red",
       "exchange": "Intercambio",
-      "successfully_connected": "conectado con éxito"
+      "successfully_connected": "conectado con éxito",
+      "selectNetwork":  "Seleccionar red"
     }
   },
   ru: {
@@ -121,7 +123,8 @@ const resources = {
       "exchanges": "Биржи",
       "network": "Сеть",
       "exchange": "Биржа",
-      "successfully_connected": "успешно подключена"
+      "successfully_connected": "успешно подключена",
+      "selectNetwork":  "Выберите сеть"
     }
   }
 };
